@@ -32,6 +32,6 @@ jobs:
     - name: Verify with Maven
       run: |
         echo Testing Project
-        cd "code/Grocery List JavaFX Sample/"
+        cd "code/HouseInventory_Project/"
         mvn --batch-mode --update-snapshots clean verify
         cd ../..
