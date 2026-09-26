@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/23" 
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.westga.comp4420.house_inventory.view.codebehind.MainWindow" 
+            prefHeight="600.0" 
+            prefWidth="800.0">
+
+</AnchorPane>
