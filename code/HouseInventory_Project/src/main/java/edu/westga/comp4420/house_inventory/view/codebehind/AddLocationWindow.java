@@ -2,6 +2,7 @@ package edu.westga.comp4420.house_inventory.view.codebehind;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import edu.westga.comp4420.house_inventory.model.Location;
 
 /**
  * Code for the Add Location window
@@ -26,6 +27,8 @@ public class AddLocationWindow {
      */
     @FXML
     private void addLocation() {
+        String locationName = this.locationNameTextField.getText();
+        Location location = new Location(locationName);
 
     }
 
