@@ -6,6 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.control.ListView;
+import edu.westga.comp4420.house_inventory.model.Inventory;
+import edu.westga.comp4420.house_inventory.model.Location;
 
 /**
  * Code behind for the main inventory window
@@ -14,13 +17,18 @@ import javafx.stage.Stage;
  * @version Fall 2026
  */
 public class MainWindow {
+    
+    @FXML
+    private ListView&lt;String&gt; locationListView;
+    private Inventory inventory;
 
     /**
      * Creates a new main inventory window
      */
-<span class="nc" id="L21">    public MainWindow() {</span>
+<span class="nc" id="L28">    public MainWindow() {</span>
+<span class="nc" id="L29">        this.inventory = new Inventory();</span>
         
-<span class="nc" id="L23">    }</span>
+<span class="nc" id="L31">    }</span>
 
     /**
      * Open the Add Location window when selected
@@ -29,14 +37,30 @@ public class MainWindow {
      */
     @FXML
     private void openAddLocation() throws IOException {
-<span class="nc" id="L32">        Parent root = FXMLLoader.load(</span>
-<span class="nc" id="L33">            getClass().getResource(&quot;AddLocationWindow.fxml&quot;)</span>
+<span class="nc" id="L40">        FXMLLoader loader = new FXMLLoader(</span>
+<span class="nc" id="L41">            getClass().getResource(&quot;AddLocationWindow.fxml&quot;)</span>
         );
 
-<span class="nc" id="L36">        Stage stage = new Stage();</span>
-<span class="nc" id="L37">        stage.setTitle(&quot;Add Location&quot;);</span>
-<span class="nc" id="L38">        stage.setScene(new Scene(root));</span>
-<span class="nc" id="L39">        stage.show();</span>
-<span class="nc" id="L40">    }</span>
+<span class="nc" id="L44">        Parent root = loader.load();</span>
+
+<span class="nc" id="L46">        AddLocationWindow controller = loader.getController();</span>
+<span class="nc" id="L47">        controller.setInventory(this.inventory);</span>
+
+<span class="nc" id="L49">        Stage stage = new Stage();</span>
+<span class="nc" id="L50">        stage.setTitle(&quot;Add Location&quot;);</span>
+<span class="nc" id="L51">        stage.setScene(new Scene(root));</span>
+<span class="nc" id="L52">        stage.showAndWait();</span>
+<span class="nc" id="L53">        this.refreshLocationList();</span>
+<span class="nc" id="L54">    }</span>
+
+    /**
+     * Refreshes the locations list 
+     */
+    private void refreshLocationList() {
+<span class="nc" id="L60">        this.locationListView.getItems().clear();</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        for (Location location : this.inventory.getLocations()) {</span>
+<span class="nc" id="L62">            this.locationListView.getItems().add(location.getName());</span>
+<span class="nc" id="L63">        }</span>
+<span class="nc" id="L64">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

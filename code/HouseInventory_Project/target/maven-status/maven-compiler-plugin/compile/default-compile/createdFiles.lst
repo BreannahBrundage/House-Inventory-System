@@ -1,5 +1,7 @@
+edu\westga\comp4420\house_inventory\model\Inventory.class
 edu\westga\comp4420\house_inventory\view\codebehind\MainWindow.class
 edu\westga\comp4420\house_inventory\view\codebehind\AddLocationWindow.class
+edu\westga\comp4420\house_inventory\model\Item.class
 edu\westga\comp4420\house_inventory\model\Location.class
 edu\westga\comp4420\house_inventory\Launcher.class
 edu\westga\comp4420\house_inventory\Main.class
