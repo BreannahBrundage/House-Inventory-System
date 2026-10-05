@@ -12,12 +12,14 @@ import java.util.List;
 public class Inventory {
     
     private List<Location> locations;
+    private List<Item> items;
 
     /**
      * Creates a new inventory
      */
     public Inventory() {
         this.locations = new ArrayList<Location>();
+        this.items = new ArrayList<Item>();
     }
 
     /**
@@ -36,6 +38,24 @@ public class Inventory {
      */
     public List<Location> getLocations() {
         return this.locations;
+    }
+
+    /**
+     * Adds a new item to the inventory
+     * 
+     * @param item the item to be added
+     */
+    public void addItem(Item item) {
+        this.items.add(item);
+    }
+
+    /**
+     * Getter for the items in inventory
+     * 
+     * @return the items
+     */
+    public List<Item> getItems() {
+        return this.items;
     }
 
 }

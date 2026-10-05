@@ -12,13 +12,15 @@ import java.util.List;
 public class Inventory {
     
     private List&lt;Location&gt; locations;
+    private List&lt;Item&gt; items;
 
     /**
      * Creates a new inventory
      */
-<span class="fc" id="L19">    public Inventory() {</span>
-<span class="fc" id="L20">        this.locations = new ArrayList&lt;Location&gt;();</span>
-<span class="fc" id="L21">    }</span>
+<span class="fc" id="L20">    public Inventory() {</span>
+<span class="fc" id="L21">        this.locations = new ArrayList&lt;Location&gt;();</span>
+<span class="fc" id="L22">        this.items = new ArrayList&lt;Item&gt;();</span>
+<span class="fc" id="L23">    }</span>
 
     /**
      * Adds a new location to the inventory 
@@ -26,8 +28,8 @@ public class Inventory {
      * @param location the location to be added
      */
     public void addLocation(Location location) {
-<span class="fc" id="L29">        this.locations.add(location);</span>
-<span class="fc" id="L30">    }</span>
+<span class="fc" id="L31">        this.locations.add(location);</span>
+<span class="fc" id="L32">    }</span>
 
     /**
      * Getter for the location in the inventory
@@ -35,7 +37,25 @@ public class Inventory {
      * @return the locations
      */
     public List&lt;Location&gt; getLocations() {
-<span class="fc" id="L38">        return this.locations;</span>
+<span class="fc" id="L40">        return this.locations;</span>
+    }
+
+    /**
+     * Adds a new item to the inventory
+     * 
+     * @param item the item to be added
+     */
+    public void addItem(Item item) {
+<span class="nc" id="L49">        this.items.add(item);</span>
+<span class="nc" id="L50">    }</span>
+
+    /**
+     * Getter for the items in inventory
+     * 
+     * @return the items
+     */
+    public List&lt;Item&gt; getItems() {
+<span class="nc" id="L58">        return this.items;</span>
     }
 
 }

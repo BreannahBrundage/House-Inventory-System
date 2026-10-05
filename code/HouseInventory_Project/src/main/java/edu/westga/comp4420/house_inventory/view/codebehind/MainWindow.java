@@ -7,8 +7,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import edu.westga.comp4420.house_inventory.model.Inventory;
 import edu.westga.comp4420.house_inventory.model.Location;
+import edu.westga.comp4420.house_inventory.model.Item;
+
+
 
 /**
  * Code behind for the main inventory window
@@ -19,6 +25,15 @@ import edu.westga.comp4420.house_inventory.model.Location;
 public class MainWindow {
     
     @FXML
+    private TableView<Item> itemTableView;
+
+    @FXML
+    private TableColumn<Item, String> itemColumn;
+
+    @FXML
+    private TableColumn<Item, Integer> quantityColumn;
+
+    @FXML
     private ListView<String> locationListView;
     private Inventory inventory;
 
@@ -28,6 +43,20 @@ public class MainWindow {
     public MainWindow() {
         this.inventory = new Inventory();
         
+    }
+
+    /**
+     * Initializes the main inventory window
+     */
+    @FXML
+    private void initialize() {
+        this.itemColumn.setCellValueFactory(
+            new PropertyValueFactory<Item, String>("name")
+        );
+
+        this.quantityColumn.setCellValueFactory(
+            new PropertyValueFactory<Item, Integer>("quantity")
+        );
     }
 
     /**
@@ -60,6 +89,39 @@ public class MainWindow {
         this.locationListView.getItems().clear();
         for (Location location : this.inventory.getLocations()) {
             this.locationListView.getItems().add(location.getName());
+        }
+    }
+
+    /**
+     * Open the Add Item window when selected
+     * 
+     * @throws IOException if the file cannot load properly
+     */
+    @FXML
+    private void openAddItem() throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+            getClass().getResource("AddItemWindow.fxml")
+        );
+
+        Parent root = loader.load();
+        AddItemWindow controller = loader.getController();
+        controller.setInventory(this.inventory);
+
+        Stage stage = new Stage();
+        stage.setTitle("Add Item");
+        stage.setScene(new Scene(root));
+        stage.showAndWait();
+        this.refreshItemTable();
+    }
+
+    /**
+     * Refresh item table
+     */
+    private void refreshItemTable() {
+        this.itemTableView.getItems().clear();
+
+        for (Item item : this.inventory.getItems()) {
+            this.itemTableView.getItems().add(item);
         }
     }
 }

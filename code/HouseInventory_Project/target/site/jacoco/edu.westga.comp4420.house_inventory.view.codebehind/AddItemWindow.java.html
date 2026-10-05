@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AddItemWindow.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">House-Inventory</a> &gt; <a href="index.source.html" class="el_package">edu.westga.comp4420.house_inventory.view.codebehind</a> &gt; <span class="el_source">AddItemWindow.java</span></div><h1>AddItemWindow.java</h1><pre class="source lang-java linenums">package edu.westga.comp4420.house_inventory.view.codebehind;
+
+import edu.westga.comp4420.house_inventory.model.Item;
+import edu.westga.comp4420.house_inventory.model.Inventory;
+import edu.westga.comp4420.house_inventory.model.Location;
+import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+/**
+ * Add item window class
+ * 
+ * @author breannah brundage
+ * @version Fall 2026
+ */
+public class AddItemWindow {
+
+    @FXML
+    private TextField itemTextField;
+
+    @FXML
+    private TextField quantityTextField;
+
+    @FXML
+    private ComboBox&lt;Location&gt; locationComboBox;
+
+    @FXML 
+    private TextArea detailsTextArea;
+
+    private Inventory inventory;
+
+    /**
+     * Creates a new Add Item window
+     */
+<span class="nc" id="L37">    public AddItemWindow() {</span>
+
+<span class="nc" id="L39">    }</span>
+
+    /**
+     * Setter for AddItemWindow inventory
+     * 
+     * @param inventory the inventory that will be used
+     */
+    public void setInventory(Inventory inventory) {
+<span class="nc" id="L47">        this.inventory = inventory;</span>
+<span class="nc" id="L48">        this.locationComboBox.getItems().addAll(inventory.getLocations());</span>
+<span class="nc" id="L49">    }</span>
+
+    /**
+     * Adds a new item
+     */
+    @FXML
+    private void buttonAddItem() {
+<span class="nc" id="L56">        String name = this.itemTextField.getText();</span>
+<span class="nc" id="L57">        int quantity = Integer.parseInt(this.quantityTextField.getText());</span>
+<span class="nc" id="L58">        Location location = this.locationComboBox.getValue();</span>
+<span class="nc" id="L59">        String details = this.detailsTextArea.getText();</span>
+<span class="nc" id="L60">        Item item = new Item(name, quantity, location, details);</span>
+<span class="nc" id="L61">        this.inventory.addItem(item);</span>
+
+<span class="nc" id="L63">        Stage stage = (Stage) this.itemTextField.getScene().getWindow();</span>
+<span class="nc" id="L64">        stage.close();</span>
+<span class="nc" id="L65">    }</span>
+
+    /**
+     * Cancels adding a new item
+     */
+    @FXML
+    private void buttonCancel() {
+<span class="nc" id="L72">        Stage stage = (Stage) this.itemTextField.getScene().getWindow();</span>
+<span class="nc" id="L73">        stage.close();</span>
+<span class="nc" id="L74">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
