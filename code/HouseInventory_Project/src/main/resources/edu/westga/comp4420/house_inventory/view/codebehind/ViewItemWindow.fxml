@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="363.0" prefWidth="231.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.comp4420.house_inventory.view.codebehind.ViewItemWindow">
+   <children>
+      <Label layoutX="79.0" layoutY="14.0" text="View Item">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="64.0" text="Item:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="itemLabel" layoutX="90.0" layoutY="66.0" prefHeight="17.0" prefWidth="128.0" />
+      <Label fx:id="quantityLabel" layoutX="89.0" layoutY="100.0" prefHeight="17.0" prefWidth="128.0" />
+      <Label layoutX="20.0" layoutY="98.0" text="Quantity:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="130.0" text="Location:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="locationLabel" layoutX="90.0" layoutY="132.0" prefHeight="17.0" prefWidth="128.0" />
+      <Label layoutX="20.0" layoutY="161.0" text="Details:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="detailsTextArea" editable="false" layoutX="89.0" layoutY="161.0" prefHeight="123.0" prefWidth="128.0" />
+      <Button layoutX="93.0" layoutY="325.0" mnemonicParsing="false" onAction="#buttonClose" text="Close">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

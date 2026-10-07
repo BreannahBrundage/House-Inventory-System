@@ -124,4 +124,30 @@ public class MainWindow {
             this.itemTableView.getItems().add(item);
         }
     }
+
+    /**
+     * Opens the View Item window
+     * 
+     * @throws IOException if file does not load properly
+     */
+    @FXML
+    private void openViewItem() throws IOException {
+        Item selectedItem = this.itemTableView.getSelectionModel().getSelectedItem();
+
+        if (selectedItem != null) {
+            FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("ViewItemWindow.fxml")
+            );
+
+            Parent root = loader.load();
+
+            ViewItemWindow controller = loader.getController();
+            controller.setItem(selectedItem);
+
+            Stage stage = new Stage();
+            stage.setTitle("View Item");
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+        }
+    }
 }

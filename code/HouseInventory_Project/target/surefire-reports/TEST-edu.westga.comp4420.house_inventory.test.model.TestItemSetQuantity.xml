@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.westga.comp4420.house_inventory.test.model.TestItemSetQuantity" time="0.001" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.westga.comp4420.house_inventory.test.model.TestItemSetQuantity" time="0.007" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="26"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\java\jdk\bin"/>
-    <property name="sun.java.command" value="C:\Users\LOCAL_~1\Temp\surefire9047960328609871247\surefirebooter14743646544919668418.jar C:\Users\local_bb00297\Temp\surefire9047960328609871247 2026-10-04T23-32-00_643-jvmRun1 surefire11940210649581213406tmp surefire_01445999748261167663tmp"/>
+    <property name="sun.java.command" value="C:\Users\LOCAL_~1\Temp\surefire2847615879411136797\surefirebooter667649537785153302.jar C:\Users\local_bb00297\Temp\surefire2847615879411136797 2026-10-07T17-28-04_326-jvmRun1 surefire15726329749475558863tmp surefire_010482234680731842288tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\bb00297\Desktop\House-Inventory-System\code\HouseInventory_Project\target\test-classes;C:\Users\bb00297\Desktop\House-Inventory-System\code\HouseInventory_Project\target\classes;C:\Users\bb00297\.m2\repository\org\openjfx\javafx-controls\21\javafx-controls-21.jar;C:\Users\bb00297\.m2\repository\org\openjfx\javafx-controls\21\javafx-controls-21-win.jar;C:\Users\bb00297\.m2\repository\org\openjfx\javafx-graphics\21\javafx-graphics-21.jar;C:\Users\bb00297\.m2\repository\org\openjfx\javafx-graphics\21\javafx-graphics-21-win.jar;C:\Users\bb00297\.m2\repository\org\openjfx\javafx-base\21\javafx-base-21.jar;C:\Users\bb00297\.m2\repository\org\openjfx\javafx-base\21\javafx-base-21-win.jar;C:\Users\bb00297\.m2\repository\org\openjfx\javafx-fxml\21\javafx-fxml-21.jar;C:\Users\bb00297\.m2\repository\org\openjfx\javafx-fxml\21\javafx-fxml-21-win.jar;C:\Users\bb00297\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.5.1\junit-jupiter-api-5.5.1.jar;C:\Users\bb00297\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\bb00297\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\bb00297\.m2\repository\org\junit\platform\junit-platform-commons\1.5.1\junit-platform-commons-1.5.1.jar;C:\Users\bb00297\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.5.1\junit-jupiter-params-5.5.1.jar;C:\Users\bb00297\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.5.1\junit-jupiter-engine-5.5.1.jar;C:\Users\bb00297\.m2\repository\org\junit\platform\junit-platform-engine\1.5.1\junit-platform-engine-1.5.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\LOCAL_~1\Temp\surefire9047960328609871247\surefirebooter14743646544919668418.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\LOCAL_~1\Temp\surefire2847615879411136797\surefirebooter667649537785153302.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="26.0.2+10-55"/>

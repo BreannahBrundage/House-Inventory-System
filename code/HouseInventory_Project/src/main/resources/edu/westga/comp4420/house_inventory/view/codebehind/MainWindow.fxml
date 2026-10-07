@@ -50,7 +50,7 @@
           <TableColumn fx:id="quantityColumn" prefWidth="129.0" text="Quantity" />
         </columns>
       </TableView>
-      <Button layoutX="21.0" layoutY="407.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="85.0" text="View Item">
+      <Button layoutX="21.0" layoutY="407.0" mnemonicParsing="false" onAction="#openViewItem" prefHeight="31.0" prefWidth="85.0" text="View Item">
          <font>
             <Font size="14.0" />
          </font>

@@ -124,5 +124,31 @@ public class MainWindow {
 <span class="nc" id="L124">            this.itemTableView.getItems().add(item);</span>
 <span class="nc" id="L125">        }</span>
 <span class="nc" id="L126">    }</span>
+
+    /**
+     * Opens the View Item window
+     * 
+     * @throws IOException if file does not load properly
+     */
+    @FXML
+    private void openViewItem() throws IOException {
+<span class="nc" id="L135">        Item selectedItem = this.itemTableView.getSelectionModel().getSelectedItem();</span>
+
+<span class="nc bnc" id="L137" title="All 2 branches missed.">        if (selectedItem != null) {</span>
+<span class="nc" id="L138">            FXMLLoader loader = new FXMLLoader(</span>
+<span class="nc" id="L139">                getClass().getResource(&quot;ViewItemWindow.fxml&quot;)</span>
+            );
+
+<span class="nc" id="L142">            Parent root = loader.load();</span>
+
+<span class="nc" id="L144">            ViewItemWindow controller = loader.getController();</span>
+<span class="nc" id="L145">            controller.setItem(selectedItem);</span>
+
+<span class="nc" id="L147">            Stage stage = new Stage();</span>
+<span class="nc" id="L148">            stage.setTitle(&quot;View Item&quot;);</span>
+<span class="nc" id="L149">            stage.setScene(new Scene(root));</span>
+<span class="nc" id="L150">            stage.showAndWait();</span>
+        }
+<span class="nc" id="L152">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
