@@ -1,0 +1,12 @@
+edu\westga\comp4420\house_inventory\test\model\TestInventoryConstructor.class
+edu\westga\comp4420\house_inventory\test\model\TestItemConstructor.class
+edu\westga\comp4420\house_inventory\test\model\TestLocationSetName.class
+edu\westga\comp4420\house_inventory\test\model\TestInventoryAddLocation.class
+edu\westga\comp4420\house_inventory\test\model\TestItemSetName.class
+edu\westga\comp4420\house_inventory\test\model\TestInventorySearchItem.class
+edu\westga\comp4420\house_inventory\test\model\TestInventoryRemoveItem.class
+edu\westga\comp4420\house_inventory\test\model\TestItemSetDetails.class
+edu\westga\comp4420\house_inventory\test\model\TestLocationConstructor.class
+edu\westga\comp4420\house_inventory\test\model\TestLocationToString.class
+edu\westga\comp4420\house_inventory\test\model\TestItemSetLocation.class
+edu\westga\comp4420\house_inventory\test\model\TestItemSetQuantity.class
