@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import edu.westga.comp4420.house_inventory.model.Inventory;
 import edu.westga.comp4420.house_inventory.model.Location;
@@ -36,6 +37,9 @@ public class MainWindow {
     @FXML
     private ListView<String> locationListView;
     private Inventory inventory;
+
+    @FXML
+    private TextField searchTextField;
 
     /**
      * Creates a new main inventory window
@@ -189,5 +193,17 @@ public class MainWindow {
             this.inventory.removeItem(selectedItem);
             this.refreshItemTable();
         }
+    }
+
+    /**
+     * Searches inventory for desired item 
+     */
+    @FXML
+    private void searchItems() {
+        String searchText = this.searchTextField.getText();
+        this.itemTableView.getItems().clear();
+        this.itemTableView.getItems().addAll(
+            this.inventory.searchItems(searchText)
+        );
     }
 }

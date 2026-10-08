@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import edu.westga.comp4420.house_inventory.model.Inventory;
 import edu.westga.comp4420.house_inventory.model.Location;
@@ -37,27 +38,30 @@ public class MainWindow {
     private ListView&lt;String&gt; locationListView;
     private Inventory inventory;
 
+    @FXML
+    private TextField searchTextField;
+
     /**
      * Creates a new main inventory window
      */
-<span class="nc" id="L43">    public MainWindow() {</span>
-<span class="nc" id="L44">        this.inventory = new Inventory();</span>
+<span class="nc" id="L47">    public MainWindow() {</span>
+<span class="nc" id="L48">        this.inventory = new Inventory();</span>
         
-<span class="nc" id="L46">    }</span>
+<span class="nc" id="L50">    }</span>
 
     /**
      * Initializes the main inventory window
      */
     @FXML
     private void initialize() {
-<span class="nc" id="L53">        this.itemColumn.setCellValueFactory(</span>
+<span class="nc" id="L57">        this.itemColumn.setCellValueFactory(</span>
             new PropertyValueFactory&lt;Item, String&gt;(&quot;name&quot;)
         );
 
-<span class="nc" id="L57">        this.quantityColumn.setCellValueFactory(</span>
+<span class="nc" id="L61">        this.quantityColumn.setCellValueFactory(</span>
             new PropertyValueFactory&lt;Item, Integer&gt;(&quot;quantity&quot;)
         );
-<span class="nc" id="L60">    }</span>
+<span class="nc" id="L64">    }</span>
 
     /**
      * Open the Add Location window when selected
@@ -66,31 +70,31 @@ public class MainWindow {
      */
     @FXML
     private void openAddLocation() throws IOException {
-<span class="nc" id="L69">        FXMLLoader loader = new FXMLLoader(</span>
-<span class="nc" id="L70">            getClass().getResource(&quot;AddLocationWindow.fxml&quot;)</span>
+<span class="nc" id="L73">        FXMLLoader loader = new FXMLLoader(</span>
+<span class="nc" id="L74">            getClass().getResource(&quot;AddLocationWindow.fxml&quot;)</span>
         );
 
-<span class="nc" id="L73">        Parent root = loader.load();</span>
+<span class="nc" id="L77">        Parent root = loader.load();</span>
 
-<span class="nc" id="L75">        AddLocationWindow controller = loader.getController();</span>
-<span class="nc" id="L76">        controller.setInventory(this.inventory);</span>
+<span class="nc" id="L79">        AddLocationWindow controller = loader.getController();</span>
+<span class="nc" id="L80">        controller.setInventory(this.inventory);</span>
 
-<span class="nc" id="L78">        Stage stage = new Stage();</span>
-<span class="nc" id="L79">        stage.setTitle(&quot;Add Location&quot;);</span>
-<span class="nc" id="L80">        stage.setScene(new Scene(root));</span>
-<span class="nc" id="L81">        stage.showAndWait();</span>
-<span class="nc" id="L82">        this.refreshLocationList();</span>
-<span class="nc" id="L83">    }</span>
+<span class="nc" id="L82">        Stage stage = new Stage();</span>
+<span class="nc" id="L83">        stage.setTitle(&quot;Add Location&quot;);</span>
+<span class="nc" id="L84">        stage.setScene(new Scene(root));</span>
+<span class="nc" id="L85">        stage.showAndWait();</span>
+<span class="nc" id="L86">        this.refreshLocationList();</span>
+<span class="nc" id="L87">    }</span>
 
     /**
      * Refreshes the locations list 
      */
     private void refreshLocationList() {
-<span class="nc" id="L89">        this.locationListView.getItems().clear();</span>
-<span class="nc bnc" id="L90" title="All 2 branches missed.">        for (Location location : this.inventory.getLocations()) {</span>
-<span class="nc" id="L91">            this.locationListView.getItems().add(location.getName());</span>
-<span class="nc" id="L92">        }</span>
-<span class="nc" id="L93">    }</span>
+<span class="nc" id="L93">        this.locationListView.getItems().clear();</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        for (Location location : this.inventory.getLocations()) {</span>
+<span class="nc" id="L95">            this.locationListView.getItems().add(location.getName());</span>
+<span class="nc" id="L96">        }</span>
+<span class="nc" id="L97">    }</span>
 
     /**
      * Open the Add Item window when selected
@@ -99,31 +103,31 @@ public class MainWindow {
      */
     @FXML
     private void openAddItem() throws IOException {
-<span class="nc" id="L102">        FXMLLoader loader = new FXMLLoader(</span>
-<span class="nc" id="L103">            getClass().getResource(&quot;AddItemWindow.fxml&quot;)</span>
+<span class="nc" id="L106">        FXMLLoader loader = new FXMLLoader(</span>
+<span class="nc" id="L107">            getClass().getResource(&quot;AddItemWindow.fxml&quot;)</span>
         );
 
-<span class="nc" id="L106">        Parent root = loader.load();</span>
-<span class="nc" id="L107">        AddItemWindow controller = loader.getController();</span>
-<span class="nc" id="L108">        controller.setInventory(this.inventory);</span>
+<span class="nc" id="L110">        Parent root = loader.load();</span>
+<span class="nc" id="L111">        AddItemWindow controller = loader.getController();</span>
+<span class="nc" id="L112">        controller.setInventory(this.inventory);</span>
 
-<span class="nc" id="L110">        Stage stage = new Stage();</span>
-<span class="nc" id="L111">        stage.setTitle(&quot;Add Item&quot;);</span>
-<span class="nc" id="L112">        stage.setScene(new Scene(root));</span>
-<span class="nc" id="L113">        stage.showAndWait();</span>
-<span class="nc" id="L114">        this.refreshItemTable();</span>
-<span class="nc" id="L115">    }</span>
+<span class="nc" id="L114">        Stage stage = new Stage();</span>
+<span class="nc" id="L115">        stage.setTitle(&quot;Add Item&quot;);</span>
+<span class="nc" id="L116">        stage.setScene(new Scene(root));</span>
+<span class="nc" id="L117">        stage.showAndWait();</span>
+<span class="nc" id="L118">        this.refreshItemTable();</span>
+<span class="nc" id="L119">    }</span>
 
     /**
      * Refresh item table
      */
     private void refreshItemTable() {
-<span class="nc" id="L121">        this.itemTableView.getItems().clear();</span>
+<span class="nc" id="L125">        this.itemTableView.getItems().clear();</span>
 
-<span class="nc bnc" id="L123" title="All 2 branches missed.">        for (Item item : this.inventory.getItems()) {</span>
-<span class="nc" id="L124">            this.itemTableView.getItems().add(item);</span>
-<span class="nc" id="L125">        }</span>
-<span class="nc" id="L126">    }</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">        for (Item item : this.inventory.getItems()) {</span>
+<span class="nc" id="L128">            this.itemTableView.getItems().add(item);</span>
+<span class="nc" id="L129">        }</span>
+<span class="nc" id="L130">    }</span>
 
     /**
      * Opens the View Item window
@@ -132,24 +136,24 @@ public class MainWindow {
      */
     @FXML
     private void openViewItem() throws IOException {
-<span class="nc" id="L135">        Item selectedItem = this.itemTableView.getSelectionModel().getSelectedItem();</span>
+<span class="nc" id="L139">        Item selectedItem = this.itemTableView.getSelectionModel().getSelectedItem();</span>
 
-<span class="nc bnc" id="L137" title="All 2 branches missed.">        if (selectedItem != null) {</span>
-<span class="nc" id="L138">            FXMLLoader loader = new FXMLLoader(</span>
-<span class="nc" id="L139">                getClass().getResource(&quot;ViewItemWindow.fxml&quot;)</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">        if (selectedItem != null) {</span>
+<span class="nc" id="L142">            FXMLLoader loader = new FXMLLoader(</span>
+<span class="nc" id="L143">                getClass().getResource(&quot;ViewItemWindow.fxml&quot;)</span>
             );
 
-<span class="nc" id="L142">            Parent root = loader.load();</span>
+<span class="nc" id="L146">            Parent root = loader.load();</span>
 
-<span class="nc" id="L144">            ViewItemWindow controller = loader.getController();</span>
-<span class="nc" id="L145">            controller.setItem(selectedItem);</span>
+<span class="nc" id="L148">            ViewItemWindow controller = loader.getController();</span>
+<span class="nc" id="L149">            controller.setItem(selectedItem);</span>
 
-<span class="nc" id="L147">            Stage stage = new Stage();</span>
-<span class="nc" id="L148">            stage.setTitle(&quot;View Item&quot;);</span>
-<span class="nc" id="L149">            stage.setScene(new Scene(root));</span>
-<span class="nc" id="L150">            stage.showAndWait();</span>
+<span class="nc" id="L151">            Stage stage = new Stage();</span>
+<span class="nc" id="L152">            stage.setTitle(&quot;View Item&quot;);</span>
+<span class="nc" id="L153">            stage.setScene(new Scene(root));</span>
+<span class="nc" id="L154">            stage.showAndWait();</span>
         }
-<span class="nc" id="L152">    }</span>
+<span class="nc" id="L156">    }</span>
 
     /**
      * Opens the Edit Item window
@@ -158,37 +162,49 @@ public class MainWindow {
      */
     @FXML
     private void openEditItem() throws IOException {
-<span class="nc" id="L161">        Item selectedItem = this.itemTableView.getSelectionModel().getSelectedItem();</span>
+<span class="nc" id="L165">        Item selectedItem = this.itemTableView.getSelectionModel().getSelectedItem();</span>
 
-<span class="nc bnc" id="L163" title="All 2 branches missed.">        if (selectedItem != null) {</span>
-<span class="nc" id="L164">            FXMLLoader loader = new FXMLLoader(</span>
-<span class="nc" id="L165">                getClass().getResource(&quot;EditItemWindow.fxml&quot;)</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">        if (selectedItem != null) {</span>
+<span class="nc" id="L168">            FXMLLoader loader = new FXMLLoader(</span>
+<span class="nc" id="L169">                getClass().getResource(&quot;EditItemWindow.fxml&quot;)</span>
             );
 
-<span class="nc" id="L168">            Parent root = loader.load();</span>
+<span class="nc" id="L172">            Parent root = loader.load();</span>
 
-<span class="nc" id="L170">            EditItemWindow controller = loader.getController();</span>
-<span class="nc" id="L171">            controller.setItem(selectedItem, this.inventory);</span>
+<span class="nc" id="L174">            EditItemWindow controller = loader.getController();</span>
+<span class="nc" id="L175">            controller.setItem(selectedItem, this.inventory);</span>
 
-<span class="nc" id="L173">            Stage stage = new Stage();</span>
-<span class="nc" id="L174">            stage.setTitle(&quot;Edit Item&quot;);</span>
-<span class="nc" id="L175">            stage.setScene(new Scene(root));</span>
-<span class="nc" id="L176">            stage.showAndWait();</span>
-<span class="nc" id="L177">            this.itemTableView.refresh();</span>
+<span class="nc" id="L177">            Stage stage = new Stage();</span>
+<span class="nc" id="L178">            stage.setTitle(&quot;Edit Item&quot;);</span>
+<span class="nc" id="L179">            stage.setScene(new Scene(root));</span>
+<span class="nc" id="L180">            stage.showAndWait();</span>
+<span class="nc" id="L181">            this.itemTableView.refresh();</span>
         }
-<span class="nc" id="L179">    }</span>
+<span class="nc" id="L183">    }</span>
 
     /**
      * Removes selected item from inventory
      */
     @FXML
     private void removeSelectedItem() {
-<span class="nc" id="L186">        Item selectedItem = this.itemTableView.getSelectionModel().getSelectedItem();</span>
+<span class="nc" id="L190">        Item selectedItem = this.itemTableView.getSelectionModel().getSelectedItem();</span>
 
-<span class="nc bnc" id="L188" title="All 2 branches missed.">        if (selectedItem != null) {</span>
-<span class="nc" id="L189">            this.inventory.removeItem(selectedItem);</span>
-<span class="nc" id="L190">            this.refreshItemTable();</span>
+<span class="nc bnc" id="L192" title="All 2 branches missed.">        if (selectedItem != null) {</span>
+<span class="nc" id="L193">            this.inventory.removeItem(selectedItem);</span>
+<span class="nc" id="L194">            this.refreshItemTable();</span>
         }
-<span class="nc" id="L192">    }</span>
+<span class="nc" id="L196">    }</span>
+
+    /**
+     * Searches inventory for desired item 
+     */
+    @FXML
+    private void searchItems() {
+<span class="nc" id="L203">        String searchText = this.searchTextField.getText();</span>
+<span class="nc" id="L204">        this.itemTableView.getItems().clear();</span>
+<span class="nc" id="L205">        this.itemTableView.getItems().addAll(</span>
+<span class="nc" id="L206">            this.inventory.searchItems(searchText)</span>
+        );
+<span class="nc" id="L208">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

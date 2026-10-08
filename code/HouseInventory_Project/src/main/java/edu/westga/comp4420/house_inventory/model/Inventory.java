@@ -59,6 +59,23 @@ public class Inventory {
     }
 
     /**
+     * Searches inventory for desired item
+     * 
+     * @param searchText the text to search for item
+     * @return matching item
+     */
+    public List<Item> searchItems(String searchText) {
+        List<Item> matchingItems = new ArrayList<Item>();
+
+        for (Item item : this.items) {
+            if (item.getName().toLowerCase().contains(searchText.toLowerCase())) {
+                matchingItems.add(item);
+            }
+        }
+        return matchingItems;
+    }
+
+    /**
      * Getter for the items in inventory
      * 
      * @return the items

@@ -59,12 +59,29 @@ public class Inventory {
 <span class="fc" id="L59">    }</span>
 
     /**
+     * Searches inventory for desired item
+     * 
+     * @param searchText the text to search for item
+     * @return matching item
+     */
+    public List&lt;Item&gt; searchItems(String searchText) {
+<span class="fc" id="L68">        List&lt;Item&gt; matchingItems = new ArrayList&lt;Item&gt;();</span>
+
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        for (Item item : this.items) {</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">            if (item.getName().toLowerCase().contains(searchText.toLowerCase())) {</span>
+<span class="fc" id="L72">                matchingItems.add(item);</span>
+            }
+<span class="fc" id="L74">        }</span>
+<span class="fc" id="L75">        return matchingItems;</span>
+    }
+
+    /**
      * Getter for the items in inventory
      * 
      * @return the items
      */
     public List&lt;Item&gt; getItems() {
-<span class="fc" id="L67">        return this.items;</span>
+<span class="fc" id="L84">        return this.items;</span>
     }
 
 }
