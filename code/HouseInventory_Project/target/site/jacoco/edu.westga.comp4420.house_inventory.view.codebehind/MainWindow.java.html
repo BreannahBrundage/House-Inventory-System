@@ -177,5 +177,18 @@ public class MainWindow {
 <span class="nc" id="L177">            this.itemTableView.refresh();</span>
         }
 <span class="nc" id="L179">    }</span>
+
+    /**
+     * Removes selected item from inventory
+     */
+    @FXML
+    private void removeSelectedItem() {
+<span class="nc" id="L186">        Item selectedItem = this.itemTableView.getSelectionModel().getSelectedItem();</span>
+
+<span class="nc bnc" id="L188" title="All 2 branches missed.">        if (selectedItem != null) {</span>
+<span class="nc" id="L189">            this.inventory.removeItem(selectedItem);</span>
+<span class="nc" id="L190">            this.refreshItemTable();</span>
+        }
+<span class="nc" id="L192">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -50,6 +50,15 @@ public class Inventory {
     }
 
     /**
+     * Remove an item from inventory
+     * 
+     * @param item the item selected to be removed
+     */
+    public void removeItem(Item item) {
+        this.items.remove(item);
+    }
+
+    /**
      * Getter for the items in inventory
      * 
      * @return the items

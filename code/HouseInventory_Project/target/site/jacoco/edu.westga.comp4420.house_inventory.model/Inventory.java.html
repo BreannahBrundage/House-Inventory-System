@@ -46,8 +46,17 @@ public class Inventory {
      * @param item the item to be added
      */
     public void addItem(Item item) {
-<span class="nc" id="L49">        this.items.add(item);</span>
-<span class="nc" id="L50">    }</span>
+<span class="fc" id="L49">        this.items.add(item);</span>
+<span class="fc" id="L50">    }</span>
+
+    /**
+     * Remove an item from inventory
+     * 
+     * @param item the item selected to be removed
+     */
+    public void removeItem(Item item) {
+<span class="fc" id="L58">        this.items.remove(item);</span>
+<span class="fc" id="L59">    }</span>
 
     /**
      * Getter for the items in inventory
@@ -55,7 +64,7 @@ public class Inventory {
      * @return the items
      */
     public List&lt;Item&gt; getItems() {
-<span class="nc" id="L58">        return this.items;</span>
+<span class="fc" id="L67">        return this.items;</span>
     }
 
 }

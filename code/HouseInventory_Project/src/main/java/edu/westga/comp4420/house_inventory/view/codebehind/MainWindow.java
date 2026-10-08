@@ -177,4 +177,17 @@ public class MainWindow {
             this.itemTableView.refresh();
         }
     }
+
+    /**
+     * Removes selected item from inventory
+     */
+    @FXML
+    private void removeSelectedItem() {
+        Item selectedItem = this.itemTableView.getSelectionModel().getSelectedItem();
+
+        if (selectedItem != null) {
+            this.inventory.removeItem(selectedItem);
+            this.refreshItemTable();
+        }
+    }
 }
