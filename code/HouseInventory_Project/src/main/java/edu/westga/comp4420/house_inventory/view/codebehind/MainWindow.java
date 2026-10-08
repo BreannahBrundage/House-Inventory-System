@@ -150,4 +150,31 @@ public class MainWindow {
             stage.showAndWait();
         }
     }
+
+    /**
+     * Opens the Edit Item window
+     * 
+     * @throws IOException if the file does not load properly
+     */
+    @FXML
+    private void openEditItem() throws IOException {
+        Item selectedItem = this.itemTableView.getSelectionModel().getSelectedItem();
+
+        if (selectedItem != null) {
+            FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("EditItemWindow.fxml")
+            );
+
+            Parent root = loader.load();
+
+            EditItemWindow controller = loader.getController();
+            controller.setItem(selectedItem, this.inventory);
+
+            Stage stage = new Stage();
+            stage.setTitle("Edit Item");
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+            this.itemTableView.refresh();
+        }
+    }
 }

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EditItemWindow.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">House-Inventory</a> &gt; <a href="index.source.html" class="el_package">edu.westga.comp4420.house_inventory.view.codebehind</a> &gt; <span class="el_source">EditItemWindow.java</span></div><h1>EditItemWindow.java</h1><pre class="source lang-java linenums">package edu.westga.comp4420.house_inventory.view.codebehind;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import edu.westga.comp4420.house_inventory.model.Location;
+import edu.westga.comp4420.house_inventory.model.Inventory;
+import edu.westga.comp4420.house_inventory.model.Item;
+
+
+/**
+ * Code for Edit Item window
+ * 
+ * @author breannah brundage
+ * @version Fall 2026
+ */
+public class EditItemWindow {
+
+    @FXML
+    private TextField itemTextField;
+
+    @FXML
+    private TextField quantityTextField;
+
+    @FXML
+    private ComboBox&lt;Location&gt; locationComboBox;
+
+    @FXML
+    private TextArea detailsTextArea;
+
+    private Item item;
+    private Inventory inventory;
+
+    /**
+     * Creates new Edit Item window
+     */
+<span class="nc" id="L39">    public EditItemWindow() {</span>
+
+<span class="nc" id="L41">    }</span>
+
+    /**
+     * Setter for item and inventory for editing 
+     * 
+     * @param item the item being edited
+     * @param inventory the inventory containing the item to be edited
+     */
+    public void setItem(Item item, Inventory inventory) {
+<span class="nc" id="L50">        this.item = item;</span>
+<span class="nc" id="L51">        this.inventory = inventory;</span>
+
+<span class="nc" id="L53">        this.itemTextField.setText(item.getName());</span>
+<span class="nc" id="L54">        this.quantityTextField.setText(Integer.toString(item.getQuantity()));</span>
+<span class="nc" id="L55">        this.locationComboBox.getItems().addAll(inventory.getLocations());</span>
+<span class="nc" id="L56">        this.locationComboBox.setValue(item.getLocation());</span>
+<span class="nc" id="L57">        this.detailsTextArea.setText(item.getDetails());</span>
+<span class="nc" id="L58">    }</span>
+
+    /**
+     * Saves changes made to the item
+     */
+    @FXML
+    private void buttonSaveChanges() {
+<span class="nc" id="L65">        this.item.setName(this.itemTextField.getText());</span>
+<span class="nc" id="L66">        this.item.setQuantity(Integer.parseInt(this.quantityTextField.getText()));</span>
+<span class="nc" id="L67">        this.item.setLocation(this.locationComboBox.getValue());</span>
+<span class="nc" id="L68">        this.item.setDetails(this.detailsTextArea.getText());</span>
+
+<span class="nc" id="L70">        Stage stage = (Stage) this.itemTextField.getScene().getWindow();</span>
+<span class="nc" id="L71">        stage.close();</span>
+<span class="nc" id="L72">    }</span>
+
+    /**
+     * Cancels editing the item
+     */
+    @FXML
+    public void buttonCancel() {
+<span class="nc" id="L79">        Stage stage = (Stage) this.itemTextField.getScene().getWindow();</span>
+<span class="nc" id="L80">        stage.close();</span>
+<span class="nc" id="L81">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
