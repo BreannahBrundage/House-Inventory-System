@@ -14,6 +14,9 @@ const createAccountQuery = 'INSERT INTO users (username, password) VALUES (?, ?)
 //Define basic SQL query to create the user table
 const createUserTableQuery = 'CREATE TABLE IF NOT EXISTS users (username TEXT PRIMARY KEY, password TEXT)';
 
+//Import the login helper
+const isValidLogin = require('./loginHelper');
+
 //Define function to connect to DB
 const connectToDB = function() {
 	return new sqlite3.Database('./todo-store.db', sqlite3.OPEN_READWRITE, 
@@ -132,7 +135,7 @@ app.post('/login', function(req, res) {
 		if (err) {
 			console.log(err);
 			res.send('Error logging in');
-		} else if (user) {
+		} else if (isValidLogin(user)) {
 			res.redirect('/todo?username=' + encodeURIComponent(username));
 		} else {
 			res.render('page/login', {
