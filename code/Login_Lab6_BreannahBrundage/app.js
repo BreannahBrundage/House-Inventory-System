@@ -135,7 +135,7 @@ app.post('/login', function(req, res) {
 		if (err) {
 			console.log(err);
 			res.send('Error logging in');
-		} else if (isValidLogin(user)) {
+		} else if (isValidLogin(user, username, password)) {
 			res.redirect('/todo?username=' + encodeURIComponent(username));
 		} else {
 			res.render('page/login', {
