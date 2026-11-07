@@ -3,7 +3,7 @@ name: Deploy SimpleSite to AWS EC2
 on:
   push:
     branches: [release]
-  workflow_dispatch: 
+  
 
 jobs:
   deploy:
