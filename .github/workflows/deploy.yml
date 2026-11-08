@@ -3,12 +3,18 @@ name: Deploy SimpleSite to AWS EC2
 on:
   push:
     branches: [release]
+  
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check SSH secret size
+        env:
+          SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+        run: |
+          echo "SSH key bytes: $(printf '%s" "$SSH_KEY" | wc -c)"
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1
         with:
